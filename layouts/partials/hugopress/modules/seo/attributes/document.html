@@ -1,0 +1,6 @@
+{{- $attrs := newScratch }}
+{{- $attrs.Set "lang" .Page.Lang }}
+{{- with .Page.Site.Language.LanguageDirection }}
+  {{- $attrs.Set "dir" . }}
+{{- end }}
+{{- return $attrs.Values -}}

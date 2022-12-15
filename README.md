@@ -14,7 +14,7 @@ This module ships with some templates to helps you generate SEO stuff, such as m
 
 ## Usage
 
-> Skip this section if your theme support [HugoPress](https://github.com/razonyang/hugopress), all partials will be included automatically.
+> Skip this section if your theme supports [HugoPress](https://github.com/razonyang/hugopress), all partials will be included automatically.
 
 Just include the partials you want.
 

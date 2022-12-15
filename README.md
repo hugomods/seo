@@ -6,7 +6,6 @@ This module ships with some templates to helps you generate SEO stuff, such as m
 
 | Partial | Description
 |---|---
-| `hugopress/modules/seo/all` | Include all of the SEO partials.
 | `hugopress/modules/seo/alternatives` | Alternative pages.
 | `hugopress/modules/seo/open-graph` | [Open Graph](https://ogp.me/).
 | `hugopress/modules/seo/schema` | [Schema](https://schema.org/).
@@ -20,5 +19,9 @@ This module ships with some templates to helps you generate SEO stuff, such as m
 Just include the partials you want.
 
 ```go
-{{- partial "hugopress/modules/seo/all" . -}}
+{{ partial "hugopress/modules/seo/alternatives" . }}
+{{ partial "hugopress/modules/seo/translations" . }}
+{{ partial "hugopress/modules/seo/schema.html" . }}
+{{ partial "hugopress/modules/seo/open-graph.html" . }}
+{{ partial "hugopress/modules/seo/twitter-cards.html" . }}
 ```

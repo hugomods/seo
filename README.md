@@ -5,28 +5,32 @@
 [![License](https://img.shields.io/github/license/razonyang/hugo-mod-seo?style=flat-square)](https://github.com/razonyang/hugo-mod-seo/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/tag/razonyang/hugo-mod-seo?label=version&style=flat-square)](https://github.com/razonyang/hugo-mod-seo/tags)
 
-This module ships with some templates to helps you generate SEO stuff, such as meta tags.
+This module ships with some modules to helps you generate SEO stuff, such as meta tags.
 
-## Partials
+## Modules
 
-| Partial | Description
-|---|---
-| `hugopress/modules/seo/alternatives` | Alternative pages.
-| `hugopress/modules/seo/open-graph` | [Open Graph](https://ogp.me/).
-| `hugopress/modules/seo/schema` | [Schema](https://schema.org/).
-| `hugopress/modules/seo/translations` | Localized pages, see [Tell Google about localized versions of your page](https://developers.google.com/search/docs/specialty/international/localized-versions).
-| `hugopress/modules/seo/twitter-cards` | [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).
+| Module                                                    |              Partial              | Description                                                                                                                                                     |
+| --------------------------------------------------------- | :-------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `github.com/razonyang/hugo-mod-seo/modules/base`          |                 -                 | Set the `lang` and `dir` attributes on `<html>`.                                                                                                                |
+| `github.com/razonyang/hugo-mod-seo/modules/alternatives`  | `seo/modules/alternatives/index`  | Alternative pages.                                                                                                                                              |
+| `github.com/razonyang/hugo-mod-seo/modules/open-graph`    |  `seo/modules/open-graph/index`   | [Open Graph](https://ogp.me/).                                                                                                                                  |
+| `github.com/razonyang/hugo-mod-seo/modules/schema`        |    `seo/modules/schema/index`     | [Schema](https://schema.org/).                                                                                                                                  |
+| `github.com/razonyang/hugo-mod-seo/modules/translations`  | `seo/modules/translations/index`  | Localized pages, see [Tell Google about localized versions of your page](https://developers.google.com/search/docs/specialty/international/localized-versions). |
+| `github.com/razonyang/hugo-mod-seo/modules/twitter-cards` | `seo/modules/twitter-cards/index` | [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).                                                         |
 
 ## Usage
 
+### Import the Module
+
+```toml
+[module.imports]
+path = "MODULE_PATH"
+```
+
+### Include the Partial
+
 > Skip this section if your theme supports [HugoPress](https://github.com/razonyang/hugopress), all partials will be included automatically.
 
-Just include the partials you want.
-
 ```go
-{{ partial "hugopress/modules/seo/alternatives" . }}
-{{ partial "hugopress/modules/seo/translations" . }}
-{{ partial "hugopress/modules/seo/schema.html" . }}
-{{ partial "hugopress/modules/seo/open-graph.html" . }}
-{{ partial "hugopress/modules/seo/twitter-cards.html" . }}
+{{ partial "MODULE_PARTIAL" . }}
 ```

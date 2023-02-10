@@ -1,0 +1,4 @@
+[[module.imports]]
+path = "github.com/razonyang/hugopress"
+
+[params.hugopress.modules.seo-twitter-cards.hooks.head-begin]

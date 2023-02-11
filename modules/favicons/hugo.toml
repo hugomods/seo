@@ -1,0 +1,22 @@
+[[module.imports]]
+path = "github.com/razonyang/hugopress"
+
+[params.hugopress.modules.seo-favicons.hooks.head-begin]
+cacheable = true
+
+[params.seo.favicons]
+icon = "favicon.png"
+mask_icon = "mask-icon.svg"
+mask_icon_color = "#000000"
+
+# [[params.seo.favicons.sizes]]
+#   size = '16x16'
+# [[params.seo.favicons.sizes]]
+#   size = '32x32'
+# [[params.seo.favicons.sizes]]
+#   size = '150x150'
+# [[params.seo.favicons.sizes]]
+#   rel = 'apple-touch-icon'
+#   size = '180x180'
+# [[params.seo.favicons.sizes]]
+#   size = '192x192'

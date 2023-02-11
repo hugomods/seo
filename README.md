@@ -7,17 +7,6 @@
 
 This module ships with some modules to helps you generate SEO stuff, such as meta tags.
 
-## Modules
-
-| Module                                                    |              Partial              | Description                                                                                                                                                     |
-| --------------------------------------------------------- | :-------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `github.com/razonyang/hugo-mod-seo/modules/base`          |                 -                 | Set the `lang` and `dir` attributes on `<html>`.                                                                                                                |
-| `github.com/razonyang/hugo-mod-seo/modules/alternatives`  | `seo/modules/alternatives/index`  | Alternative pages.                                                                                                                                              |
-| `github.com/razonyang/hugo-mod-seo/modules/open-graph`    |  `seo/modules/open-graph/index`   | [Open Graph](https://ogp.me/).                                                                                                                                  |
-| `github.com/razonyang/hugo-mod-seo/modules/schema`        |    `seo/modules/schema/index`     | [Schema](https://schema.org/).                                                                                                                                  |
-| `github.com/razonyang/hugo-mod-seo/modules/translations`  | `seo/modules/translations/index`  | Localized pages, see [Tell Google about localized versions of your page](https://developers.google.com/search/docs/specialty/international/localized-versions). |
-| `github.com/razonyang/hugo-mod-seo/modules/twitter-cards` | `seo/modules/twitter-cards/index` | [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).                                                         |
-
 ## Usage
 
 ### Import the Module
@@ -34,3 +23,90 @@ path = "MODULE_PATH"
 ```go
 {{ partial "MODULE_PARTIAL" . }}
 ```
+
+## Modules
+
+### Base
+
+Set the `lang` and `dir` attributes on `<html>`.
+
+| Path                                             | Partial |
+| ------------------------------------------------ | ------- |
+| `github.com/razonyang/hugo-mod-seo/modules/base` | -       |
+
+### Alternatives
+
+Generates alternative pages meta tags.
+
+| Path                                                     | Partial                      |
+| -------------------------------------------------------- | ---------------------------- |
+| `github.com/razonyang/hugo-mod-seo/modules/alternatives` | `seo/modules/favicons/index` |
+
+### Favicons
+
+Generates favicons in multiple sizes base on the `assets/favicon.png`.
+
+| Path                                                 | Partial                      |
+| ---------------------------------------------------- | ---------------------------- |
+| `github.com/razonyang/hugo-mod-seo/modules/favicons` | `seo/modules/favicons/index` |
+
+- The `assets/favicon.png` for generating icons in multiple sizes by default.
+- The `assets/favicon.ico` or `static/favicon.ico` for classic browsers.
+- The `assets/mask-icon.svg` for Safari pinned tab by default.
+
+The following params begin with `params.seo.favicons`.
+
+| Params            |  Type  |     Default     | Description           |
+| ----------------- | :----: | :-------------: | --------------------- |
+| `icon`            | String |  `favicon.png`  |
+| `mask_icon`       | String | `mask-icon.svg` |
+| `mask_icon_color` | String |    `#000000`    |
+| `sizes`           | Array  |        -        |
+| `sizes.size`      | String |        -        | For example, `32x32`. |
+| `sizes.rel`       | String |     `icon`      |
+
+```toml
+[[params.seo.favicons.sizes]]
+  size = '16x16'
+[[params.seo.favicons.sizes]]
+  size = '32x32'
+[[params.seo.favicons.sizes]]
+  size = '150x150'
+[[params.seo.favicons.sizes]]
+  rel = 'apple-touch-icon'
+  size = '180x180'
+[[params.seo.favicons.sizes]]
+  size = '192x192'
+```
+
+### Open Graph
+
+[Open Graph](https://ogp.me/).
+
+| Path                                                   | Partial                        |
+| ------------------------------------------------------ | ------------------------------ |
+| `github.com/razonyang/hugo-mod-seo/modules/open-graph` | `seo/modules/open-graph/index` |
+
+### Schema
+
+[Schema](https://schema.org/).
+
+| Path                                               | Partial                    |
+| -------------------------------------------------- | -------------------------- |
+| `github.com/razonyang/hugo-mod-seo/modules/schema` | `seo/modules/schema/index` |
+
+### Translations
+
+Localized pages, see [Tell Google about localized versions of your page](https://developers.google.com/search/docs/specialty/international/localized-versions).
+
+| Path                                                     | Partial                          |
+| -------------------------------------------------------- | -------------------------------- |
+| `github.com/razonyang/hugo-mod-seo/modules/translations` | `seo/modules/translations/index` |
+
+### Twitter Cards
+
+[Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).
+
+| Path                                                      | Partial                           |
+| --------------------------------------------------------- | --------------------------------- |
+| `github.com/razonyang/hugo-mod-seo/modules/twitter-cards` | `seo/modules/twitter-cards/index` |

@@ -5,3 +5,7 @@
   {{- $desc = substr $desc 0 $descMaxLen }}
 {{- end }}
 <meta name="description" content="{{ $desc }}" />
+{{/* Generate the noindex meta tag. */}}
+{{- if .Params.noindex }}
+  <meta name="robots" content="noindex">
+{{- end }}

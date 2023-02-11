@@ -29,7 +29,8 @@ path = "MODULE_PATH"
 ### Base
 
 1. Set the `lang` and `dir` attributes on `<html>` (HugoPress only).
-2. Generate the description meta tag.
+2. Generate the `description` meta tag.
+3. Generate the `noindex` meta tag if the `noindex` parameter is enabled.
 
 | Path                                             | Partial                  |
 | ------------------------------------------------ | ------------------------ |

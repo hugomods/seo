@@ -28,11 +28,12 @@ path = "MODULE_PATH"
 
 ### Base
 
-Set the `lang` and `dir` attributes on `<html>`.
+1. Set the `lang` and `dir` attributes on `<html>` (HugoPress only).
+2. Generate the description meta tag.
 
-| Path                                             | Partial |
-| ------------------------------------------------ | ------- |
-| `github.com/razonyang/hugo-mod-seo/modules/base` | -       |
+| Path                                             | Partial                  |
+| ------------------------------------------------ | ------------------------ |
+| `github.com/razonyang/hugo-mod-seo/modules/base` | `seo/modules/base/index` |
 
 ### Alternatives
 

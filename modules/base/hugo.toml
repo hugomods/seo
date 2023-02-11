@@ -2,3 +2,5 @@
 path = "github.com/razonyang/hugopress"
 
 [params.hugopress.modules.seo-base.attributes.document]
+
+[params.hugopress.modules.seo-base.hooks.head-begin]

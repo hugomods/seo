@@ -1,0 +1,7 @@
+{{/* Generate the description meta tag. */}}
+{{- $desc := default .Title (default (.Summary | plainify) .Description) }}
+{{- $descMaxLen := 160 }}
+{{- if gt (len $desc) $descMaxLen }}
+  {{- $desc = substr $desc 0 $descMaxLen }}
+{{- end }}
+<meta name="description" content="{{ $desc }}" />

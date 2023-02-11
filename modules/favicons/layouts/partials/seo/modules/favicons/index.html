@@ -1,0 +1,42 @@
+{{- $sizes := slice
+  (dict "size" "16x16")
+  (dict "size" "32x32")
+  (dict "size" "150x150")
+  (dict "size" "180x180" "rel" "apple-touch-icon")
+  (dict "size" "192x192")
+}}
+{{- with .Site.Params.seo.favicons.sizes }}
+  {{- $sizes = . }}
+{{- end }}
+{{- $faviconName := default "favicon.png" .Site.Params.seo.favicons.icon }}
+{{- $favicon := resources.Get $faviconName }}
+{{- if $favicon }}
+  {{- range $sizes }}
+    {{- $img := $favicon.Resize .size }}
+    <link
+      rel="{{ default `icon` .rel }}"
+      href="{{ $img.RelPermalink }}"
+      sizes="{{ .size }}"
+      type="{{ $img.MediaType }}"
+    />
+  {{- end }}
+{{- else }}
+  {{- warnf "[seo] the assets/%s does not exist." $faviconName }}
+{{- end }}
+{{/* Mask (Pinned Tab) icon for Safari browser. */}}
+{{- $maskIcon := default "mask-icon.svg" .Site.Params.seo.favicons.mask_icon }}
+{{- with resources.Get $maskIcon }}
+  <link
+    rel="mask-icon"
+    href="{{ .RelPermalink }}"
+    color="{{ default `#000000` $.Site.Params.seo.favicons.mask_icon_color }}"
+  />
+{{- else }}
+  {{- warnf "[seo] the assets/%s does not exist." $maskIcon }}
+{{- end }}
+{{/* For classic browsers. */}}
+{{- $ico := resources.Get "favicon.ico" }}
+{{/* Output nothing to publish the resource. */}}
+{{- if and (not (os.FileExists "static/favicon.ico")) $ico }}
+  {{- if eq $ico.RelPermalink "" }}{{ end }}
+{{- end }}

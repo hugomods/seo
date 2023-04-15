@@ -10,15 +10,21 @@
 {{- end }}
 {{- $faviconName := default "favicon.png" .Site.Params.seo.favicons.icon }}
 {{- $favicon := resources.Get $faviconName }}
-{{- if $favicon }}
-  {{- range $sizes }}
-    {{- $img := $favicon.Resize .size }}
-    <link
-      rel="{{ default `icon` .rel }}"
-      href="{{ $img.RelPermalink }}"
-      sizes="{{ .size }}"
-      type="{{ $img.MediaType }}"
-    />
+{{- with $favicon }}
+  {{- if ne .MediaType.MainType "image" }}
+    {{- warnf "[seo] the assets/%s isn't an image, media type: %s." $faviconName .MediaType.Type }}
+  {{- else if in (slice "svg") .MediaType.SubType }}
+    {{- warnf "[seo] the assets/%s isn't resizable." $faviconName }}
+  {{- else }}
+    {{- range $sizes }}
+      {{- $img := $favicon.Resize .size }}
+      <link
+        rel="{{ default `icon` .rel }}"
+        href="{{ $img.RelPermalink }}"
+        sizes="{{ .size }}"
+        type="{{ $img.MediaType }}"
+      />
+    {{- end }}
   {{- end }}
 {{- else }}
   {{- warnf "[seo] the assets/%s does not exist." $faviconName }}

@@ -1,0 +1,39 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "release-type": "go",
+    "monorepo-tags": true,
+    "tag-separator": "/",
+    "changelog-sections": [
+        { "type": "chore", "section": "Miscellaneous Chores", "hidden": true },
+        { "type": "ci", "section": "Continuous Integration" },
+        { "type": "docs", "section": "Documentation 📝" },
+        { "type": "feat", "section": "Features ✨" },
+        { "type": "feature", "section": "Features ✨" },
+        { "type": "fix", "section": "Bug Fixes 🐞" },
+        { "type": "perf", "section": "Performance Improvements ⚡️" },
+        { "type": "style", "section": "Styles 🎨" }
+    ],
+    "packages": {
+        "modules/alternatives": {
+            "component": "modules/alternatives"
+        },
+        "modules/base": {
+            "component": "modules/base"
+        },
+        "modules/favicons": {
+            "component": "modules/favicons"
+        },
+        "modules/open-graph": {
+            "component": "modules/open-graph"
+        },
+        "modules/schema": {
+            "component": "modules/schema"
+        },
+        "modules/translations": {
+            "component": "modules/translations"
+        },
+        "modules/twitter-cards": {
+            "component": "modules/twitter-cards"
+        }
+    }
+}

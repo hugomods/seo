@@ -10,7 +10,7 @@
 {{- end }}
 {{/* SVG icon. */}}
 {{- with resources.Get (default "favicon.svg" .Site.Params.seo.favicons.svg_icon) }}
-  {{- $svg := . | resources.Copy ("/favicon.svg" | relURL) }}
+  {{- $svg := . }}
   <link rel="icon" href="{{ $svg.RelPermalink }}" type="{{ .MediaType.Type }}">
 {{- end }}
 {{- $faviconName := default "favicon.png" .Site.Params.seo.favicons.icon }}
@@ -24,7 +24,7 @@
     {{- range $sizes }}
       {{- $iconName := printf "/favicon-%s" .size }}
       {{- with .rel }}{{ $iconName = . }}{{ end }}
-      {{- $img := $favicon.Resize .size | resources.Copy (printf "%s%s" $iconName (path.Ext $favicon.Name) | relURL)  }}
+      {{- $img := $favicon.Resize .size }}
       <link
         rel="{{ default `icon` .rel }}"
         href="{{ $img.RelPermalink }}"
@@ -39,7 +39,7 @@
 {{/* Mask (Pinned Tab) icon for Safari browser. */}}
 {{- $maskIcon := default "mask-icon.svg" .Site.Params.seo.favicons.mask_icon }}
 {{- with resources.Get $maskIcon }}
-  {{- $mask := . | resources.Copy ("/mask-icon.svg" | relURL) }}
+  {{- $mask := . }}
   <link
     rel="mask-icon"
     href="{{ $mask.RelPermalink }}"

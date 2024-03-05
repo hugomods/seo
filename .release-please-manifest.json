@@ -2,6 +2,7 @@
     "modules/alternatives": "0.1.0",
     "modules/base": "0.1.0",
     "modules/favicons": "0.2.1",
+    "modules/json-ld": "0.0.1",
     "modules/open-graph": "0.1.0",
     "modules/schema": "0.1.1",
     "modules/translations": "0.1.0",

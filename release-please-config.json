@@ -23,6 +23,9 @@
         "modules/favicons": {
             "component": "modules/favicons"
         },
+        "modules/json-ld": {
+            "component": "modules/json-ld"
+        },
         "modules/open-graph": {
             "component": "modules/open-graph"
         },

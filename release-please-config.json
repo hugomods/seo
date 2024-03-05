@@ -14,6 +14,9 @@
         { "type": "style", "section": "Styles 🎨" }
     ],
     "packages": {
+        "modules/all": {
+            "component": "modules/all"
+        },
         "modules/alternatives": {
             "component": "modules/alternatives"
         },

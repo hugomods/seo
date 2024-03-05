@@ -1,0 +1,13 @@
+{{- $s := newScratch }}
+{{- $s.Set "@context" "https://schema.org" }}
+{{- $s.Set "@type" "NewsArticle" }}
+{{- $s.Set "headline" .Title }}
+{{- $s.Set "datePublished" .Date }}
+{{- with .Lastmod }}
+  {{- $s.Set "dateModified" . }}
+{{- end }}
+{{- range partial "_funcs/get-page-images" . }}
+  {{- $s.Add "image" (slice .Permalink) }}
+{{- end }}
+{{/* TODO: author */}}
+{{- return $s.Values }}

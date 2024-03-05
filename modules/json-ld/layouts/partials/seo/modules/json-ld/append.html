@@ -1,0 +1,3 @@
+{{- $page := .page }}
+{{- $structure := partial (printf "seo/modules/json-ld/structures/%s" .structure) $page }}
+{{- $page.Store.SetInMap "seo-json-ld" (index $structure "@type") $structure }}

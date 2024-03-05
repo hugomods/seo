@@ -1,0 +1,6 @@
+{{- return dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" (default site.Title site.Params.seo.json_ld.website.name)
+  "url" site.Home.Permalink
+}}

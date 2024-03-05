@@ -1,0 +1,10 @@
+{{- if .IsHome }}
+  {{- partial "seo/modules/json-ld/append" (dict "page" . "structure" "website") }}
+{{- end }}
+{{- $params := default dict .Params.json_ld }}
+{{- $structures := slice "news-article" }}
+{{- range $structures }}
+  {{- if isset $params . }}
+    {{- partial "seo/modules/json-ld/append" (dict "page" . "structure" .) }}
+  {{- end }}
+{{- end }}

@@ -1,0 +1,9 @@
+{{- with .Store.Get "seo-json-ld" }}
+  {{- $json := . }}
+  {{- if eq (len .) 1 }}
+    {{- $json = jsonify (index (sort .) 0) }}
+  {{- else }}
+    {{- $json = jsonify . }}
+  {{- end }}
+  {{- $json | printf `<script type="application/ld+json">%s</script>` | safeHTML }}
+{{- end -}}

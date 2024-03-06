@@ -1,0 +1,34 @@
+{{- $s := newScratch }}
+{{- $s.Set "@context" "https://schema.org" }}
+{{- $s.Set "@type" "FAQPage" }}
+{{- $params := default dict .Params.json_ld.faq_page }}
+{{- $data := default "" $params.data }}
+{{- $questionField := default "question" $params.question_field }}
+{{- $answerField := default "answer" $params.answer_field }}
+{{- $questions := slice }}
+{{- with index site.Data $data }}
+  {{- range . }}
+    {{- $question := "" }}
+    {{- $answer := "" }}
+    {{- with index . $questionField }}
+      {{- $question = . }}
+    {{- else }}
+      {{- warnf "[seo|json-ld/faq] no such question field in %q data: %s" $data $questionField }}
+      {{- continue }}
+    {{- end }}
+    {{- with index . $answerField }}
+      {{- $answer = . | $.RenderString }}
+    {{- else }}
+      {{- warnf "[seo/json-ld/faq] no such answer field in %q data: %s" $data $questionField }}
+      {{- continue }}
+    {{- end }}
+    {{- $s.Add "mainEntity" (slice (dict
+      "@type" "Question"
+      "name" $question
+      "acceptedAnswer" (dict "@type" "Answer" "text" $answer)))
+    }}
+  {{- end }}
+{{- else }}
+  {{- warnf "[seo/json-ld/faq] no such FAQs data: %q" $data }}
+{{- end }}
+{{- return $s.Values }}

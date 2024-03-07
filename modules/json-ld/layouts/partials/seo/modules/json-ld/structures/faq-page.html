@@ -13,7 +13,7 @@
     {{- with index . $questionField }}
       {{- $question = . }}
     {{- else }}
-      {{- warnf "[seo|json-ld/faq] no such question field in %q data: %s" $data $questionField }}
+      {{- warnf "[seo/json-ld/faq] no such question field in %q data: %s" $data $questionField }}
       {{- continue }}
     {{- end }}
     {{- with index . $answerField }}

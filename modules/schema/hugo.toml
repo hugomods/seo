@@ -2,3 +2,4 @@
 cacheable = true
 
 [params.hugopress.modules.seo-schema.hooks.head-begin]
+partial = "seo/modules/schema/index"

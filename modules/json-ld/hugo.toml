@@ -1,3 +1,5 @@
 [params.hugopress.modules.seo-json-ld.hooks.head-begin]
+partial = "seo/modules/json-ld/index"
 
 [params.hugopress.modules.seo-json-ld.hooks.body-end]
+partial = "seo/modules/json-ld/script"

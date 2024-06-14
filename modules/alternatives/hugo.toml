@@ -1,1 +1,2 @@
 [params.hugopress.modules.seo-alternatives.hooks.head-begin]
+partial = "seo/modules/alternatives/index"

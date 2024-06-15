@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/hugomods/seo/compare/modules/json-ld/v0.2.0...modules/json-ld/v0.2.1) (2024-06-15)
+
+
+### Performance Improvements ⚡️
+
+* **hugopress:** include partials directly ([#34](https://github.com/hugomods/seo/issues/34)) ([7af9331](https://github.com/hugomods/seo/commit/7af933144550b973309120ff3404c9001552e769))
+
 ## [0.2.0](https://github.com/hugomods/seo/compare/modules/json-ld/v0.1.0...modules/json-ld/v0.2.0) (2024-03-06)
 
 

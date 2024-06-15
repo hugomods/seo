@@ -1,11 +1,11 @@
 {
     "modules/all": "0.1.1",
-    "modules/alternatives": "0.1.0",
-    "modules/base": "0.1.2",
-    "modules/favicons": "0.2.1",
-    "modules/json-ld": "0.2.0",
-    "modules/open-graph": "0.1.0",
-    "modules/schema": "0.1.2",
-    "modules/translations": "0.1.0",
-    "modules/twitter-cards": "0.1.0"
+    "modules/alternatives": "0.1.1",
+    "modules/base": "0.1.3",
+    "modules/favicons": "0.2.2",
+    "modules/json-ld": "0.2.1",
+    "modules/open-graph": "0.1.1",
+    "modules/schema": "0.1.3",
+    "modules/translations": "0.1.1",
+    "modules/twitter-cards": "0.1.1"
 }

@@ -1,5 +1,6 @@
 [params.hugopress.modules.seo-favicons.hooks.head-begin]
 cacheable = true
+partial = "seo/modules/favicons/index"
 
 [params.seo.favicons]
 icon = "favicon.png"
